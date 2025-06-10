@@ -1,124 +1,126 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Koher Detailing</title>
   <style>
-    /* General resets */
+    /* Reset and base styles */
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f7f9fc;
       color: #003366;
-      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    h2, h3 {
+      color: #002a86;
+      text-align: center;
+      margin-top: 0;
+    }
+    p {
+      text-align: center;
+      line-height: 1.5;
+      max-width: 900px;
+      margin: 0 auto 1.5em auto;
     }
 
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* Navigation Bar */
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 20px;
+      background-color: #003366;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
       z-index: 1000;
     }
-
-    .logo-link {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-link img {
+    .navbar .logo {
       height: 40px;
-      width: auto;
-      /* Fade effect on the logo to blend into white background */
-      mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+      cursor: pointer;
     }
-
-    .nav-links {
+    .navbar ul {
       display: flex;
-      gap: 25px;
-      font-weight: 600;
-      font-size: 1rem;
+      gap: 20px;
+      margin: 0;
     }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #003366;
-      padding: 8px 10px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+    .navbar li {
+      list-style: none;
     }
-
-    .nav-links a:hover {
-      background-color: #003366;
+    .navbar a {
       color: white;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
     }
-
-    /* Mobile Hamburger Menu */
+    .navbar a:hover {
+      background-color: #0055a5;
+    }
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 5px;
+      gap: 4px;
     }
-
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: #003366;
-      border-radius: 3px;
+      background-color: white;
+      border-radius: 2px;
     }
-
+    /* Responsive Navbar */
     @media (max-width: 768px) {
-      .nav-links {
+      .navbar ul {
         position: fixed;
-        top: 56px;
-        right: 0;
-        background: white;
-        height: calc(100vh - 56px);
-        width: 200px;
+        top: 60px;
+        right: -100%;
+        background-color: #003366;
         flex-direction: column;
+        width: 200px;
+        height: calc(100% - 60px);
         padding-top: 20px;
-        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+        transition: right 0.3s ease;
+        border-radius: 0 0 0 10px;
       }
-
-      .nav-links.open {
-        transform: translateX(0);
+      .navbar ul.active {
+        right: 0;
       }
-
       .hamburger {
         display: flex;
       }
     }
 
-    /* Hero section */
+    /* Hero Section */
     .hero-section {
       position: relative;
       height: 100vh;
       width: 100%;
-      background: url('thumbnail_image0-_1_.png') no-repeat center center;
-      background-size: cover;
+      background: url('heropic.jpg') no-repeat center center/cover;
+      background: url('newhero.jpg') no-repeat center center/cover;
       background-position: top center;
-      margin-top: 56px; /* to offset fixed navbar */
     }
-
     .hero-section::after {
       content: "";
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 40px; /* short fade */
+      height: 40px; /* subtle fade */
       background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
     }
 
@@ -132,63 +134,26 @@
       border-radius: 12px;
     }
 
-    h2, h3 {
-      color: #002a86;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    p {
-      text-align: center;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      max-width: 500px;
-      margin: 0 auto 1em auto;
-    }
-
-    ul li {
-      text-align: left;
-      margin-bottom: 6px;
-    }
-
-    a {
-      color: #003366;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     /* Slideshow */
     .slideshow-container {
       max-width: 960px;
       margin: 40px auto;
       position: relative;
     }
-
     .slide {
       display: none;
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
     .active {
       display: block;
       animation: fadeIn 1s ease-in-out;
     }
-
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
     }
-
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -202,19 +167,15 @@
       transform: translateY(-50%);
       user-select: none;
     }
-
     .next { right: 10px; }
     .prev { left: 10px; }
-
     .prev:hover, .next:hover {
       background: rgba(0,0,0,0.8);
     }
-
     .dots {
       text-align: center;
       margin-top: 15px;
     }
-
     .dot {
       cursor: pointer;
       height: 12px;
@@ -225,7 +186,6 @@
       display: inline-block;
       transition: background-color 0.3s ease;
     }
-
     .dot.active {
       background-color: #003366;
     }
@@ -239,7 +199,6 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .btn {
       background-color: #003366;
       color: white;
@@ -249,8 +208,9 @@
       border-radius: 8px;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
     }
-
     .btn:hover {
       background-color: #0055a5;
     }
@@ -262,51 +222,84 @@
       margin-top: 20px;
       text-align: left;
     }
-
     .pricing th, .pricing td {
       padding: 12px;
       border-bottom: 1px solid #ddd;
     }
-
     .pricing th {
       background-color: #003366;
       color: white;
+    }
+
+    /* Contact Section Fix */
+    .contact-info ul {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+    .contact-info li {
+      text-align: left;
+      font-size: 1.1rem;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#hero" class="logo-link">
-      <img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" />
-    </a>
-
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" class="logo"></a>
     <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
       <div></div>
     </div>
-
-    <div class="nav-links" id="nav-links">
-      <a href="#about">About</a>
-      <a href="#pricing">Services</a> <!-- Now links directly to pricing -->
-      <a href="#our-work">Our Work</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
   </nav>
 
-  <section class="hero-section" id="hero"></section>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section"></section>
 
-  <section class="content about-contact" id="about">
+  <!-- About Section -->
+  <section id="about" class="about-contact content">
     <h2>About Koher Detailing</h2>
-    <p>Welcome to Koher Detailing, where quality meets commitment. Based in Richmond, Kentucky, we provide professional car detailing services tailored to your needs—with precision, care, and integrity.</p>
-    <p>My name is Lucas Koher, founder of Koher Detailing and a proud student at the University of Kentucky (Go Cats!). What began as a passion quickly grew into a purpose: delivering exceptional detailing services to the local community I’m proud to be a part of. Backed by strong family values and a deep appreciation for our town, I bring the same dedication and work ethic to every vehicle I touch.</p>
-    <p>At Koher Detailing, we don’t believe in shortcuts. Whether it’s a full-service detail or a simple refresh, the job isn’t done until it’s done right. With attention to detail, high-quality products, and a commitment to customer satisfaction, I’m here to make sure your ride looks its absolute best.</p>
-    <p>Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.</p>
+    <p>
+      Welcome to Koher Detailing, where quality meets commitment. Based in Richmond, Kentucky, we provide professional car detailing services tailored to your needs—with precision, care, and integrity.<br><br>
+      My name is Lucas Koher, founder of Koher Detailing and a proud student at the University of Kentucky (Go Cats!). What began as a passion quickly grew into a purpose: delivering exceptional detailing services to the local community I’m proud to be a part of. Backed by strong family values and a deep appreciation for our town, I bring the same dedication and work ethic to every vehicle I touch.<br><br>
+      At Koher Detailing, we don’t believe in shortcuts. Whether it’s a full-service detail or a simple refresh, the job isn’t done until it’s done right. With attention to detail, high-quality products, and a commitment to customer satisfaction, I’m here to make sure your ride looks its absolute best.<br><br>
+      Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.
+    </p>
   </section>
 
-  <section class="content pricing" id="pricing">
+  <!-- Services Section -->
+  <section id="services" class="content">
     <h2>Services</h2>
+    <p>We specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
+  </section>
+
+  <!-- Our Work Slideshow -->
+  <section id="work" class="slideshow-container">
+    <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
+    <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
+    <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
+    <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </section>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <!-- Pricing -->
+  <section class="pricing content">
+    <h2>Pricing</h2>
     <table>
       <thead>
         <tr>
@@ -323,78 +316,88 @@
     </table>
 
     <h3 style="margin-top: 30px;">Add-Ons</h3>
-    <ul style="max-width: 400px; margin: 0 auto;">
-      <li>Carpet Shampooing - <strong>$25</strong></li>
-      <li>Sealant - <strong>$25</strong></li>
-      <li>Wax - <strong>$25</strong></li>
-      <li>Leather Conditioning - <strong>$10</strong></li>
-      <li>Trim Restoration - <strong>$20</strong></li>
-    </ul>
-  </section>
-
-  <section class="content" id="our-work">
-    <h2>Our Work</h2>
-    <div class="slideshow-container">
-      <img class="slide active" src="work1.jpg" alt="Detailing Work 1" />
-      <img class="slide" src="work2.jpg" alt="Detailing Work 2" />
-      <img class="slide" src="work3.jpg" alt="Detailing Work 3" />
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
-      <div class="dots" id="dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-      </div>
+    <div style="text-align: center;">
+      <ul style="display: inline-block; text-align: left;">
+        <li>Carpet Shampooing - <strong>$25</strong></li>
+        <li>Sealant - <strong>$25</strong></li>
+        <li>Wax - <strong>$25</strong></li>
+        <li>Leather Conditioning - <strong>$10</strong></li>
+        <li>Trim Restoration - <strong>$20</strong></li>
+      </ul>
     </div>
   </section>
 
-  <section class="content about-contact" id="contact">
+  <!-- Contact Section -->
+  <section id="contact" class="about-contact content contact-info">
     <h2>Contact Us</h2>
-    <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
-    <p>Email: <a href="mailto:info@koherdetailing.services">info@koherdetailing.services</a></p>
-    <p>We can travel to you within Richmond, KY, and surrounding areas.</p>
-    <p>Location: Richmond, Kentucky</p>
+    <ul>
+      <li><strong>Phone:</strong> (859) 544-7114</li>
+      <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
+      <li><strong>Location:</strong> Richmond, Kentucky</li>
+      <li><strong>Available to travel:</strong> Yes, depending on location</li>
+    </ul>
     <div class="button-container">
-      <a href="https://www.instagram.com/koherdetailing" target="_blank" rel="noopener" class="btn">Instagram</a>
-      <a href="https://forms.gle/your-google-form-link" target="_blank" rel="noopener" class="btn">Booking Form</a>
+      <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
     </div>
   </section>
 
   <script>
+    // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      navLinks.classList.toggle('active');
     });
 
-    // Slideshow functionality
-    let slideIndex = 0;
+    // Slideshow logic
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    let slideInterval;
 
-    function showSlide(n) {
-      if (n >= slides.length) slideIndex = 0;
-      if (n < 0) slideIndex = slides.length - 1;
-
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-
-      slides[slideIndex].classList.add('active');
-      dots[slideIndex].classList.add('active');
+    function showSlide(index) {
+      if(index >= slides.length) index = 0;
+      if(index < 0) index = slides.length - 1;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+      });
+      currentIndex = index;
     }
 
-    function changeSlide(n) {
-      slideIndex += n;
-      showSlide(slideIndex);
+    function startSlideShow() {
+      slideInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 5000);
     }
 
-    function goToSlide(n) {
-      slideIndex = n;
-      showSlide(slideIndex);
+    function resetSlideShow() {
+      clearInterval(slideInterval);
+      startSlideShow();
     }
 
-    showSlide(slideIndex);
+    prevBtn.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+      resetSlideShow();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+      resetSlideShow();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showSlide(i);
+        resetSlideShow();
+      });
+    });
+
+    startSlideShow();
   </script>
 
 </body>
