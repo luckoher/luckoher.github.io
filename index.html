@@ -34,75 +34,6 @@
       margin-bottom: 6px;
     }
 
-    nav {
-      width: 100%;
-      background-color: #003366;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav .logo {
-      height: 40px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .bar {
-      height: 3px;
-      width: 25px;
-      background-color: white;
-      margin: 4px 0;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #003366;
-        position: absolute;
-        top: 60px;
-        left: 0;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
     .hero-section {
       position: relative;
       height: 100vh;
@@ -110,7 +41,6 @@
       background: url('thumbnail_image0-_1_.png') no-repeat center center;
       background-size: cover;
       background-position: top center;
-      margin-top: 60px;
     }
 
     .hero-section::after {
@@ -238,29 +168,39 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Logo" class="logo"></a>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <ul id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Our Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <section class="hero-section" id="hero"></section>
+  <section class="hero-section"></section>
 
   <section class="about-contact content" id="about">
     <h2>About Koher Detailing</h2>
-    <p>At Koher Detailing, we specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
+    <p>Welcome to Koher Detailing, where quality meets commitment. Based in Richmond, Kentucky, we provide professional car detailing services tailored to your needs—with precision, care, and integrity.</p>
+    <p>My name is Lucas Koher, founder of Koher Detailing and a proud student at the University of Kentucky (Go Cats!). What began as a passion quickly grew into a purpose: delivering exceptional detailing services to the local community I’m proud to be a part of. Backed by strong family values and a deep appreciation for our town, I bring the same dedication and work ethic to every vehicle I touch.</p>
+    <p>At Koher Detailing, we don’t believe in shortcuts. Whether it’s a full-service detail or a simple refresh, the job isn’t done until it’s done right. With attention to detail, high-quality products, and a commitment to customer satisfaction, I’m here to make sure your ride looks its absolute best.</p>
+    <p>Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.</p>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Follow on Instagram</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Your Detail</a>
+    </div>
   </section>
 
-  <section class="pricing content" id="services">
+  <div class="slideshow-container">
+    <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
+    <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
+    <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
+    <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <section class="pricing content">
     <h2>Pricing</h2>
     <table>
       <thead>
@@ -276,6 +216,7 @@
         <tr><td>Interior Cleaning</td><td style="text-align:right">$100</td></tr>
       </tbody>
     </table>
+
     <h3 style="margin-top: 30px;">Add-Ons</h3>
     <div style="text-align: center;">
       <ul style="display: inline-block; text-align: left;">
@@ -288,41 +229,7 @@
     </div>
   </section>
 
-  <section class="content" id="work">
-    <h2>Our Work</h2>
-    <div class="slideshow-container">
-      <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
-      <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
-      <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
-      <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
-    </div>
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
-
-  <section class="about-contact content" id="contact">
-    <h2>Contact</h2>
-    <ul>
-      <li><strong>Phone:</strong> (859) 544-7114</li>
-      <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
-      <li><strong>Location:</strong> Richmond, Kentucky</li>
-      <li><strong>Available to travel:</strong> Yes, depending on location</li>
-      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/kohers_detailing/" target="_blank">@kohers_detailing</a></li>
-      <li><strong>Schedule:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank">Google Form</a></li>
-    </ul>
-  </section>
-
   <script>
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('active');
-    }
-
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev');
@@ -370,5 +277,6 @@
 
     startSlideShow();
   </script>
+
 </body>
 </html>
