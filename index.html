@@ -13,6 +13,67 @@
       color: #003366;
     }
 
+    /* NAVIGATION */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #003366;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
     h2, h3 {
       color: #002a86;
       text-align: center;
@@ -41,6 +102,7 @@
       background: url('thumbnail_image0-_1_.png') no-repeat center center;
       background-size: cover;
       background-position: top center;
+      margin-top: 60px; /* Offset for navbar */
     }
 
     .hero-section::after {
@@ -55,7 +117,7 @@
 
     .content, .about-contact, .pricing {
       max-width: 960px;
-      margin: 0 auto;
+      margin: 40px auto;
       padding: 40px 20px;
       background-color: #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -169,22 +231,33 @@
 </head>
 <body>
 
-  <section class="hero-section"></section>
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" class="logo" /></a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#pricing">Services</a>
+      <a href="#ourwork">Our Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <section class="about-contact content" id="about">
+  <section id="hero" class="hero-section"></section>
+
+  <section id="about" class="about-contact content">
     <h2>About Koher Detailing</h2>
     <p>Welcome to Koher Detailing, where quality meets commitment. Based in Richmond, Kentucky, we provide professional car detailing services tailored to your needs—with precision, care, and integrity.</p>
     <p>My name is Lucas Koher, founder of Koher Detailing and a proud student at the University of Kentucky (Go Cats!). What began as a passion quickly grew into a purpose: delivering exceptional detailing services to the local community I’m proud to be a part of. Backed by strong family values and a deep appreciation for our town, I bring the same dedication and work ethic to every vehicle I touch.</p>
     <p>At Koher Detailing, we don’t believe in shortcuts. Whether it’s a full-service detail or a simple refresh, the job isn’t done until it’s done right. With attention to detail, high-quality products, and a commitment to customer satisfaction, I’m here to make sure your ride looks its absolute best.</p>
     <p>Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.</p>
-
-    <div style="text-align: center; margin-top: 30px;">
-      <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Follow on Instagram</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Your Detail</a>
-    </div>
   </section>
 
-  <div class="slideshow-container">
+  <div id="ourwork" class="slideshow-container">
     <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
     <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
     <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
@@ -200,7 +273,7 @@
     <span class="dot"></span>
   </div>
 
-  <section class="pricing content">
+  <section id="pricing" class="pricing content">
     <h2>Pricing</h2>
     <table>
       <thead>
@@ -229,7 +302,16 @@
     </div>
   </section>
 
+  <div id="contact" class="button-container">
+    <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
+  </div>
+
   <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev');
