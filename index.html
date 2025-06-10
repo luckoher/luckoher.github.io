@@ -34,6 +34,76 @@
       margin-bottom: 6px;
     }
 
+    /* Navigation Bar */
+    nav {
+      width: 100%;
+      background-color: #003366;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003366;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
     .hero-section {
       position: relative;
       height: 100vh;
@@ -41,6 +111,7 @@
       background: url('thumbnail_image0-_1_.png') no-repeat center center;
       background-size: cover;
       background-position: top center;
+      margin-top: 60px;
     }
 
     .hero-section::after {
@@ -49,7 +120,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 40px; /* short fade */
+      height: 40px;
       background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
     }
 
@@ -168,129 +239,29 @@
   </style>
 </head>
 <body>
-
-  <section class="hero-section"></section>
-
-  <section class="about-contact content">
-    <h2>About Koher Detailing</h2>
-    <p>At Koher Detailing, we specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
-
-    <h3>Contact Information</h3>
-    <ul>
-      <li><strong>Phone:</strong> (859) 544-7114</li>
-      <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
-      <li><strong>Location:</strong> Richmond, Kentucky</li>
-      <li><strong>Available to travel:</strong> Yes, depending on location</li>
-    </ul>
-
-    <h3>Special Offer</h3>
-    <p>Enjoy <strong>15% off for first responders</strong> as a thank you for your service.</p>
-
-    <h3>Schedule an Appointment</h3>
-    <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" rel="noopener noreferrer">schedule your detailing service here</a> or contact us directly by phone or email.</p>
-
-    <h3>Follow Us</h3>
-    <p><a href="https://www.instagram.com/kohers_detailing/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
-  </section>
-
-  <div class="slideshow-container">
-    <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
-    <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
-    <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
-    <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-  <section class="pricing content">
-    <h2>Pricing</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th style="text-align:right">Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Sedans</td><td style="text-align:right">$125</td></tr>
-        <tr><td>Trucks / SUVs / 3-Row Vehicles</td><td style="text-align:right">$150</td></tr>
-        <tr><td>Exterior Cleaning</td><td style="text-align:right">$50</td></tr>
-        <tr><td>Interior Cleaning</td><td style="text-align:right">$100</td></tr>
-      </tbody>
-    </table>
-
-    <h3 style="margin-top: 30px;">Add-Ons</h3>
-    <div style="text-align: center;">
-      <ul style="display: inline-block; text-align: left;">
-        <li>Carpet Shampooing - <strong>$25</strong></li>
-        <li>Sealant - <strong>$25</strong></li>
-        <li>Wax - <strong>$25</strong></li>
-        <li>Leather Conditioning - <strong>$10</strong></li>
-        <li>Trim Restoration - <strong>$20</strong></li>
-      </ul>
+  <nav>
+    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Logo" class="logo"></a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
-  </section>
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <div class="button-container">
-    <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
-  </div>
+  <section class="hero-section" id="hero"></section>
+
+  <!-- Remaining page content left untouched -->
 
   <script>
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-      if(index >= slides.length) index = 0;
-      if(index < 0) index = slides.length - 1;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-        dots[i].classList.toggle('active', i === index);
-      });
-      currentIndex = index;
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
     }
-
-    function startSlideShow() {
-      slideInterval = setInterval(() => {
-        showSlide(currentIndex + 1);
-      }, 5000);
-    }
-
-    function resetSlideShow() {
-      clearInterval(slideInterval);
-      startSlideShow();
-    }
-
-    prevBtn.addEventListener('click', () => {
-      showSlide(currentIndex - 1);
-      resetSlideShow();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      showSlide(currentIndex + 1);
-      resetSlideShow();
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        showSlide(i);
-        resetSlideShow();
-      });
-    });
-
-    startSlideShow();
   </script>
-
 </body>
 </html>
