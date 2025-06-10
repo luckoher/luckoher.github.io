@@ -11,11 +11,27 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f7f9fc;
       color: #003366;
-      text-align: center;
     }
 
     h2, h3 {
       color: #002a86;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      max-width: 500px;
+      margin: 0 auto 1em auto;
+    }
+
+    ul li {
+      text-align: left;
+      margin-bottom: 6px;
     }
 
     .hero-section {
@@ -128,26 +144,21 @@
       background-color: #0055a5;
     }
 
-    table {
+    .pricing table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
+      text-align: left;
     }
 
-    th, td {
+    .pricing th, .pricing td {
       padding: 12px;
       border-bottom: 1px solid #ddd;
     }
 
-    th {
+    .pricing th {
       background-color: #003366;
       color: white;
-    }
-
-    ul li {
-      padding: 6px 0;
-      text-align: left;
-      display: inline-block;
     }
   </style>
 </head>
@@ -160,17 +171,21 @@
   <section class="about-contact content">
     <h2>About Koher Detailing</h2>
     <p>At Koher Detailing, we specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
+
     <h3>Contact Information</h3>
-    <ul style="list-style:none; padding-left: 0;">
+    <ul>
       <li><strong>Phone:</strong> (859) 544-7114</li>
       <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
       <li><strong>Location:</strong> Richmond, Kentucky</li>
       <li><strong>Available to travel:</strong> Yes, depending on location</li>
     </ul>
+
     <h3>Special Offer</h3>
     <p>Enjoy <strong>15% off for first responders</strong> as a thank you for your service.</p>
+
     <h3>Schedule an Appointment</h3>
     <p>You can <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" rel="noopener noreferrer">schedule your detailing service here</a> or contact us directly by phone or email.</p>
+
     <h3>Follow Us</h3>
     <p><a href="https://www.instagram.com/kohers_detailing/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
   </section>
@@ -196,7 +211,7 @@
     <table>
       <thead>
         <tr>
-          <th style="text-align:left">Service</th>
+          <th>Service</th>
           <th style="text-align:right">Price</th>
         </tr>
       </thead>
@@ -207,6 +222,7 @@
         <tr><td>Interior Cleaning</td><td style="text-align:right">$100</td></tr>
       </tbody>
     </table>
+
     <h3 style="margin-top: 30px;">Add-Ons</h3>
     <ul>
       <li>Carpet Shampooing - <strong>$25</strong></li>
