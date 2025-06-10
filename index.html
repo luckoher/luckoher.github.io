@@ -39,37 +39,48 @@
 
     /* Navigation Bar */
     .navbar {
+      background-color: white; /* white for smooth fade */
+      padding: 0 20px;
+      height: 60px; /* fixed nav height */
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      background-color: #003366;
-      padding: 10px 20px;
+      justify-content: flex-start;
+      gap: 30px;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     .navbar .logo {
-      height: 40px;
+      height: 60px; /* full nav bar height */
+      object-fit: contain;
+      mask-image: linear-gradient(to right, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+      margin-right: 0;
       cursor: pointer;
     }
     .navbar ul {
       display: flex;
-      gap: 20px;
+      gap: 25px;
       margin: 0;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: flex-end;
     }
     .navbar li {
       list-style: none;
     }
     .navbar a {
-      color: white;
+      color: #003366; /* match logo color */
       font-weight: 600;
       padding: 8px 12px;
       border-radius: 6px;
       transition: background-color 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .navbar a:hover {
-      background-color: #0055a5;
+      background-color: #d9e3f8; /* subtle lighter blue on hover */
     }
+
     /* Hamburger */
     .hamburger {
       display: none;
@@ -80,7 +91,7 @@
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: white;
+      background-color: #003366;
       border-radius: 2px;
     }
     /* Responsive Navbar */
@@ -89,19 +100,23 @@
         position: fixed;
         top: 60px;
         right: -100%;
-        background-color: #003366;
+        background-color: white;
         flex-direction: column;
         width: 200px;
         height: calc(100% - 60px);
         padding-top: 20px;
         transition: right 0.3s ease;
         border-radius: 0 0 0 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
       }
       .navbar ul.active {
         right: 0;
       }
       .hamburger {
         display: flex;
+      }
+      .hamburger div {
+        background-color: #003366;
       }
     }
 
