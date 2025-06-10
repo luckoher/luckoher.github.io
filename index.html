@@ -11,67 +11,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f7f9fc;
       color: #003366;
-    }
-
-    /* NAVIGATION */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #003366;
-      padding: 10px 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar .logo {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .bar {
-      height: 3px;
-      width: 25px;
-      background-color: white;
-      margin: 4px 0;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #003366;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      scroll-behavior: smooth;
     }
 
     h2, h3 {
@@ -102,7 +42,6 @@
       background: url('thumbnail_image0-_1_.png') no-repeat center center;
       background-size: cover;
       background-position: top center;
-      margin-top: 60px; /* Offset for navbar */
     }
 
     .hero-section::after {
@@ -115,10 +54,38 @@
       background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
     }
 
+    nav {
+      background: #003366;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .nav-logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     .content, .about-contact, .pricing {
       max-width: 960px;
-      margin: 40px auto;
-      padding: 40px 20px;
+      margin: 0 auto;
+      padding: 80px 20px 40px 20px;
       background-color: #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       border-radius: 12px;
@@ -227,22 +194,41 @@
       background-color: #003366;
       color: white;
     }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #003366;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+    }
   </style>
 </head>
 <body>
-
-  <!-- NAVIGATION BAR -->
-  <nav class="navbar">
-    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" class="logo" /></a>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
+  <nav>
+    <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" class="nav-logo"></a>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#pricing">Services</a>
-      <a href="#ourwork">Our Work</a>
+      <a href="#work">Our Work</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -257,7 +243,7 @@
     <p>Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.</p>
   </section>
 
-  <div id="ourwork" class="slideshow-container">
+  <div id="work" class="slideshow-container">
     <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
     <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
     <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
@@ -302,14 +288,23 @@
     </div>
   </section>
 
-  <div id="contact" class="button-container">
-    <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
-  </div>
+  <section id="contact" class="about-contact content">
+    <h2>Contact Us</h2>
+    <ul>
+      <li><strong>Phone:</strong> (859) 544-7114</li>
+      <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
+      <li><strong>Location:</strong> Richmond, Kentucky</li>
+      <li><strong>Available to travel:</strong> Yes, depending on location</li>
+    </ul>
+    <div class="button-container">
+      <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
+    </div>
+  </section>
 
   <script>
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('show');
     }
 
     const slides = document.querySelectorAll('.slide');
@@ -359,6 +354,5 @@
 
     startSlideShow();
   </script>
-
 </body>
 </html>
