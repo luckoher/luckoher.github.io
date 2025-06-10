@@ -34,7 +34,6 @@
       margin-bottom: 6px;
     }
 
-    /* Navigation Bar */
     nav {
       width: 100%;
       background-color: #003366;
@@ -256,12 +255,120 @@
 
   <section class="hero-section" id="hero"></section>
 
-  <!-- Remaining page content left untouched -->
+  <section class="about-contact content" id="about">
+    <h2>About Koher Detailing</h2>
+    <p>At Koher Detailing, we specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
+  </section>
+
+  <section class="pricing content" id="services">
+    <h2>Pricing</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th style="text-align:right">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sedans</td><td style="text-align:right">$125</td></tr>
+        <tr><td>Trucks / SUVs / 3-Row Vehicles</td><td style="text-align:right">$150</td></tr>
+        <tr><td>Exterior Cleaning</td><td style="text-align:right">$50</td></tr>
+        <tr><td>Interior Cleaning</td><td style="text-align:right">$100</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top: 30px;">Add-Ons</h3>
+    <div style="text-align: center;">
+      <ul style="display: inline-block; text-align: left;">
+        <li>Carpet Shampooing - <strong>$25</strong></li>
+        <li>Sealant - <strong>$25</strong></li>
+        <li>Wax - <strong>$25</strong></li>
+        <li>Leather Conditioning - <strong>$10</strong></li>
+        <li>Trim Restoration - <strong>$20</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content" id="work">
+    <h2>Our Work</h2>
+    <div class="slideshow-container">
+      <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
+      <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
+      <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
+      <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section class="about-contact content" id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li><strong>Phone:</strong> (859) 544-7114</li>
+      <li><strong>Email:</strong> <a href="mailto:lucaskoher@gmail.com">lucaskoher@gmail.com</a></li>
+      <li><strong>Location:</strong> Richmond, Kentucky</li>
+      <li><strong>Available to travel:</strong> Yes, depending on location</li>
+      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/kohers_detailing/" target="_blank">@kohers_detailing</a></li>
+      <li><strong>Schedule:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank">Google Form</a></li>
+    </ul>
+  </section>
 
   <script>
     function toggleMenu() {
       document.getElementById('nav-links').classList.toggle('active');
     }
+
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      if(index >= slides.length) index = 0;
+      if(index < 0) index = slides.length - 1;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    function startSlideShow() {
+      slideInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 5000);
+    }
+
+    function resetSlideShow() {
+      clearInterval(slideInterval);
+      startSlideShow();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+      resetSlideShow();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+      resetSlideShow();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showSlide(i);
+        resetSlideShow();
+      });
+    });
+
+    startSlideShow();
   </script>
 </body>
 </html>
