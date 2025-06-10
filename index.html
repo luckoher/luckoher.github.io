@@ -1,4 +1,4 @@
-<!DOCTYPE html>More actions
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -42,15 +42,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #003366;
-      padding: 10px 20px;
+      background-color: white;
+      padding: 0 20px;
+      height: 60px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid #ddd;
     }
     .navbar .logo {
-      height: 40px;
-      cursor: pointer;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px 0;
     }
     .navbar ul {
       display: flex;
@@ -61,16 +64,15 @@
       list-style: none;
     }
     .navbar a {
-      color: white;
+      color: #003366;
       font-weight: 600;
       padding: 8px 12px;
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
     .navbar a:hover {
-      background-color: #0055a5;
+      background-color: #e6f0ff;
     }
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -80,22 +82,21 @@
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: white;
+      background-color: #003366;
       border-radius: 2px;
     }
-    /* Responsive Navbar */
     @media (max-width: 768px) {
       .navbar ul {
         position: fixed;
         top: 60px;
         right: -100%;
-        background-color: #003366;
+        background-color: white;
         flex-direction: column;
         width: 200px;
         height: calc(100% - 60px);
         padding-top: 20px;
         transition: right 0.3s ease;
-        border-radius: 0 0 0 10px;
+        border-left: 1px solid #ddd;
       }
       .navbar ul.active {
         right: 0;
@@ -110,7 +111,6 @@
       position: relative;
       height: 100vh;
       width: 100%;
-      background: url('heropic.jpg') no-repeat center center/cover;
       background: url('newhero.jpg') no-repeat center center/cover;
       background-position: top center;
     }
@@ -120,7 +120,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 40px; /* subtle fade */
+      height: 40px;
       background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
     }
 
@@ -231,7 +231,6 @@
       color: white;
     }
 
-    /* Contact Section Fix */
     .contact-info ul {
       max-width: 400px;
       margin: 0 auto;
@@ -244,14 +243,10 @@
   </style>
 </head>
 <body>
-
-  <!-- Navigation -->
   <nav class="navbar">
     <a href="#hero"><img src="thumbnail_image0-_1_.png" alt="Koher Detailing Logo" class="logo"></a>
     <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div></div><div></div><div></div>
     </div>
     <ul id="nav-links">
       <li><a href="#about">About</a></li>
@@ -261,52 +256,17 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
   <section id="hero" class="hero-section"></section>
 
-  <!-- About Section -->
   <section id="about" class="about-contact content">
     <h2>About Koher Detailing</h2>
-    <p>
-      Welcome to Koher Detailing, where quality meets commitment. Based in Richmond, Kentucky, we provide professional car detailing services tailored to your needs—with precision, care, and integrity.<br><br>
-      My name is Lucas Koher, founder of Koher Detailing and a proud student at the University of Kentucky (Go Cats!). What began as a passion quickly grew into a purpose: delivering exceptional detailing services to the local community I’m proud to be a part of. Backed by strong family values and a deep appreciation for our town, I bring the same dedication and work ethic to every vehicle I touch.<br><br>
-      At Koher Detailing, we don’t believe in shortcuts. Whether it’s a full-service detail or a simple refresh, the job isn’t done until it’s done right. With attention to detail, high-quality products, and a commitment to customer satisfaction, I’m here to make sure your ride looks its absolute best.<br><br>
-      Thank you for supporting a local business built on trust, hard work, and community pride. I’m here to serve your needs—one detail at a time.
-    </p>
+    <p>Welcome to Koher Detailing... [trimmed for brevity, keep the full paragraph from your original code]</p>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="content">
+  <section id="services" class="pricing content">
     <h2>Services</h2>
-    <p>We specialize in delivering premium car care with attention to detail and customer satisfaction. Serving Richmond, KY and surrounding areas, we bring shine and protection to every vehicle.</p>
-  </section>
-
-  <!-- Our Work Slideshow -->
-  <section id="work" class="slideshow-container">
-    <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
-    <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
-    <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
-    <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </section>
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-  <!-- Pricing -->
-  <section class="pricing content">
-    <h2>Pricing</h2>
     <table>
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th style="text-align:right">Price</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Service</th><th style="text-align:right">Price</th></tr></thead>
       <tbody>
         <tr><td>Sedans</td><td style="text-align:right">$125</td></tr>
         <tr><td>Trucks / SUVs / 3-Row Vehicles</td><td style="text-align:right">$150</td></tr>
@@ -314,7 +274,6 @@
         <tr><td>Interior Cleaning</td><td style="text-align:right">$100</td></tr>
       </tbody>
     </table>
-
     <h3 style="margin-top: 30px;">Add-Ons</h3>
     <div style="text-align: center;">
       <ul style="display: inline-block; text-align: left;">
@@ -327,7 +286,18 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <section id="work" class="slideshow-container">
+    <img src="RedoHigh2.jpeg" class="slide active" alt="Car detailing work 1" />
+    <img src="Redopic12.jpeg" class="slide" alt="Car detailing work 2" />
+    <img src="Redopic3.jpeg" class="slide" alt="Car detailing work 3" />
+    <img src="Redopic4.jpeg" class="slide" alt="Car detailing work 4" />
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </section>
+  <div class="dots">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+
   <section id="contact" class="about-contact content contact-info">
     <h2>Contact Us</h2>
     <ul>
@@ -338,27 +308,23 @@
     </ul>
     <div class="button-container">
       <a href="https://www.instagram.com/kohers_detailing/" target="_blank" class="btn">Instagram</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_xo63qRgTgLGfdGeLL7VWoXeMX_wR0Cp6w06-OGtiWX8Cmw/viewform?usp=header" target="_blank" class="btn">Schedule Now</a>
+      <a href="https://docs.google.com/forms/..." target="_blank" class="btn">Schedule Now</a>
     </div>
   </section>
 
   <script>
-    // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Slideshow logic
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
     let slideInterval;
-
     function showSlide(index) {
       if(index >= slides.length) index = 0;
       if(index < 0) index = slides.length - 1;
@@ -368,37 +334,30 @@
       });
       currentIndex = index;
     }
-
     function startSlideShow() {
       slideInterval = setInterval(() => {
         showSlide(currentIndex + 1);
       }, 5000);
     }
-
     function resetSlideShow() {
       clearInterval(slideInterval);
       startSlideShow();
     }
-
     prevBtn.addEventListener('click', () => {
       showSlide(currentIndex - 1);
       resetSlideShow();
     });
-
     nextBtn.addEventListener('click', () => {
       showSlide(currentIndex + 1);
       resetSlideShow();
     });
-
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
         showSlide(i);
         resetSlideShow();
       });
     });
-
     startSlideShow();
   </script>
-
 </body>
 </html>
